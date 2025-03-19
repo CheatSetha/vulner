@@ -45,6 +45,11 @@ check_tools(){
             exit 1
         fi
     done
+    # msg that ready to scan
+    echo -e "${INFO}All required tools are installed. Ready to scan.${NC}"
+    # set time out for more beutiful output
+    sleep 2
+    
 }
 
 #validate network input range 
@@ -313,6 +318,7 @@ log_results() {
 
 
 banner
+check_tools 
 check_scan_type
 get_target_ip_with_deserved_port "$output_dir"
 map_vulnerabilities "$output_dir" "$scan_type"
